@@ -21,7 +21,7 @@ Sebelum menjalankan proyek ini, pastikan Anda telah menginstal lingkungan beriku
 ## 📦 Langkah Instalasi & Konfigurasi
 
 ### 1. Duplikasi Proyek
-Pindahkan atau *clone* folder proyek ini ke dalam direktori server lokal Anda (misalnya di `D:/laragon/www/htdocs/toko_online/`).
+Pindahkan atau *clone* folder proyek ini ke dalam direktori server lokal Anda (misalnya di `D:/laragon/www/php/FULLSTACK-ENGINEER_ARFAN-SALMAN-RAMADHAN/`).
 
 ### 2. Konfigurasi Database
 1. Buka **phpMyAdmin** atau SQL editor pilihan Anda, lalu buat database baru bernama `toko_online`.
@@ -103,12 +103,12 @@ Buka Terminal, Command Prompt, atau Git Bash.
 Masuk ke direktori proyek Anda:
 
 ```Bash
-cd c:/xampp/htdocs/toko_online
+cd D:/laragon/www/php/FULLSTACK-ENGINEER_ARFAN-SALMAN-RAMADHAN/
 ```
 Jalankan perintah berikut:
 
 ```Bash
-php test_race_condition.php
+php test.php
 ```
 Hasil yang Diharapkan (Expected Summary):
 Jika Anda mengatur stok awal produk di database bernilai 5, dan mengirimkan simulasi 10 atau lebih permintaan secara serentak, maka sistem backend harus mengembalikan:

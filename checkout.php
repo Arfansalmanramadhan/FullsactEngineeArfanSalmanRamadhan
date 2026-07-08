@@ -36,7 +36,7 @@ function query($query)
     }
     return $rows;
 }
-// 1. Ambil data input JSON dari request body
+// Ambil data input JSON dari request body
 $input = json_decode(file_get_contents("php://input"), true);
 $productId = $input['product_id'] ?? null;
 $quantity = $input['quantity'] ?? 1;
@@ -57,7 +57,7 @@ try {
     $cleanProductId = (int)$productId;
     $cleanQuantity  = (int)$quantity;
 
-    // 1. Ambil data dengan mengunci berdasarkan id produk
+    // Ambil data dengan mengunci berdasarkan id produk
     $sqlSelect = "SELECT stock FROM products WHERE id = $cleanProductId FOR UPDATE";
     $products = query($sqlSelect);
 
@@ -76,7 +76,7 @@ try {
 
     $product = $products[0]; 
 
-    // 2. Cegah stok menjadi negatif
+    //  Cegah stok menjadi negatif
     if ($product['stock'] < $cleanQuantity) {
         mysqli_rollback($conn);
         http_response_code(422);
@@ -87,11 +87,11 @@ try {
         exit;
     }
 
-    // 3. Kurangi Stok Produk
+    //  Kurangi Stok Produk
     $sqlUpdate = "UPDATE products SET stock = stock - $cleanQuantity WHERE id = $cleanProductId";
     query($sqlUpdate);
 
-    // 4. Buat Pesanan Baru
+    //  Buat Pesanan Baru
     $sqlInsert = "INSERT INTO orders (product_id, quantity) VALUES ($cleanProductId, $cleanQuantity)";
     query($sqlInsert);
     // menyimpan perubahan ke database
